@@ -1,0 +1,31 @@
+.calc-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+}
+
+#num1, #num2 {
+    height: 20px;
+    margin: 0px 30px;
+    border-radius: 5px;
+}
+
+.btn-div, .result-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#button {
+    width: 50px;
+    cursor: pointer;
+}
+
+#result {
+    width: 200px;
+    height: 30px;
+    border: 1px double blue;
+    border-radius: 5px;  
+}
