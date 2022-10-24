@@ -18,14 +18,19 @@
     margin-top: 20px;
 }
 
-#button {
-    width: 50px;
+.btn-operator {
+    width: 30px;
     cursor: pointer;
+    height: 30px;
+    margin: auto 10px;
+    background-color: white;
+    color: blue;
 }
 
 #result {
     width: 200px;
     height: 30px;
+    margin: 20px auto;
     border: 1px double blue;
     border-radius: 5px;  
 }

@@ -1,32 +1,25 @@
 import React from 'react'
 import './App.css';
-import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './components/login';
 import Calculator from './components/calculator';
 import Dashboard from './components/dashboard';
+import Navbar from './components/navbar';
 
 
 function App() {
   return (
-<>
-    {/* Login prima di visualizzare la nav e i componenti */}
+<Router>
+    
+        <Login />
 
-    <Router>
+    <Routes>
         
-        <ul>
-            <li>
-                <Link to="/calculator" className='calc-link'>Calculator</Link>
-            </li>
-            <li>
-                <Link to="/dashboard" className='dash-link'>Dashboard</Link>
-            </li>
-        </ul>
-        <Routes>
-            <Route exact path="/calculator" element={<Calculator />} />
-            <Route exact path="/dashboard" element={<Dashboard />} />
-        </Routes>
-        
-    </Router>
-</>
+        <Route path='/navbar' element={<Navbar />} />
+        <Route exact path="/calculator" element={<Calculator />} />
+        <Route exact path="/dashboard" element={<Dashboard />} />
+    </Routes> 
+</Router>
     )
 }
 

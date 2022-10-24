@@ -1,20 +1,27 @@
 import React from 'react';
 import './dashboard.css';
+import Navbar from './navbar';
 
 function Dashboard () {
 return(
-<div className='table-div'>
-  <table>
-    <thead>
-      <th>Calculator's Results</th>
-    </thead>
-    <tbody>
-      <tr>
-        {/* <td>importare risultati operazioni nel componente calcolatrice</td> */}
-      </tr>
-    </tbody>
-  </table>
-</div>
+<>
+<Navbar />
+
+  <div className='table-div'>
+    <table>
+      <thead>
+        <tr>
+          <th>Calculator's Results</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</>
 )
 }
 

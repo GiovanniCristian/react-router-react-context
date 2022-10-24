@@ -2,27 +2,4 @@ body {
     background-color: rgb(230, 230, 230);
 }
 
-ul {
-    width: auto;
-    height: 100px;
-    background-color: orange;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
 
-li {
-    list-style-type: none;
-}
-
-.dash-link, .calc-link{
-    text-decoration: none;
-    font-weight: bold;
-    color: blue;
-    font-size: larger;
-    transition: 0.5s ease-in-out;
-}
-
-.dash-link:hover, .calc-link:hover{
-    color: white;
-}

@@ -1,8 +1,17 @@
 import React from "react";
 import "./login.css";
+import {useNavigate} from "react-router-dom";
 
 
 function Login() {
+
+    let navigate = useNavigate(); 
+    const routeChange = () =>{ 
+    let path = `navbar`; 
+    navigate(path);
+    }
+
+return (
 <div className="auth-form-container">
     <form className="auth-form"> 
         <div className="form-group">
@@ -14,10 +23,11 @@ function Login() {
             <input className="form-control" type='password'/>
         </div>
         <div>
-            <button type='submit'>Login</button>
+            <button type="button" onClick={routeChange}>Login</button>
         </div>
     </form>
 </div>
+ )
 }
 
 export default Login
