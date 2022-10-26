@@ -1,62 +1,106 @@
 import React, { useState } from 'react';
 import "./calculator.css";
-import Navbar from './navbar';
+// import Navbar from './navbar';
 
 function Calculator() {
   const [ firstNum, setFirstNum ] = useState( 0 );
-  const [secondNum, setSecondNum ] = useState( 0 );
+  const [ secondNum, setSecondNum ] = useState( 0 );
+
+  // Siccome 'result' deve essere disponibile anche al componente
+  // 'Dashboard' occorre che 'result' sia una variabile di stato globale
+  // all'applicazione, non una variabile di stato locale al componente Calculator.
+  // Quindi è necessario usare il concetto React di Context:
+  // https://reactjs.org/docs/context.html
   const [result, setResult ] = useState( 0 );
 
-  function add(){
-    let operation = firstNum + secondNum;
-    console.log(operation);
-    let result = setResult(operation);
-      return result;
-  }
+  // function add(){
+  //   let operation = firstNum + secondNum;
+  //   console.log(operation);
+  //   let result = setResult(operation);
+  //     return result;
+  // }
 
-  function min(){
-    let operation = firstNum - secondNum;
-    console.log(operation);
-    let result = setResult(operation);
-      return result;
-  }
+  // function min(){
+  //   let operation = firstNum - secondNum;
+  //   console.log(operation);
+  //   let result = setResult(operation);
+  //     return result;
+  // }
 
-  function mult(){
-    let operation = firstNum * secondNum;
-    console.log(operation);
-    let result = setResult(operation);
-      return result;
-  }
+  // function mult(){
+  //   let operation = firstNum * secondNum;
+  //   console.log(operation);
+  //   let result = setResult(operation);
+  //     return result;
+  // }
 
-  function divi(){
-    let operation = firstNum / secondNum;
-    console.log(operation);
-    let result = setResult(operation);
-      return result;
-  }
+  // function divi(){
+  //   let operation = firstNum / secondNum;
+  //   console.log(operation);
+  //   let result = setResult(operation);
+  //     return result;
+  // }
+
+  // Quando noti che è presente ripetizione nel codice 
+  // ( ogni funzione è praticamente identica all'altra, cambia solo l'operazione)
+  // è il momento di passare al refactoring del codice:
+  const computeResult = ( operator ) => {
+    let newResult = 0;
+
+    switch ( operator ) {
+      case '+':
+        newResult = firstNum + secondNum;
+        break;
+
+      case '-':
+        newResult = firstNum - secondNum;
+        break;
+
+      case '*':
+        newResult = firstNum * secondNum;
+        break;
+
+      case '/':
+        newResult = firstNum / secondNum;
+        break;
+
+      default:
+        break;
+    }
+
+    // Qui occorrerebbe aggiornare il Context dell'applicazione (vedi sopra).
+    setResult( newResult );
+  };
 
   return (
     <>
-    <Navbar />
+    {/* // La Navbar ora è presente in tutte le pagine. Vedi Layout.js
+    <Navbar /> */}
     
         <div className='calc-div'>
             <input
               value={firstNum}
               type="number"
               id='num1'
-              onChange={( event ) => setFirstNum( +event.target.value ) }
+              onChange={( event ) => setFirstNum( Number( event.target.value ) ) }
             />
            <div className='operators'>
-            <button className='btn-operator' onClick={add}>+</button>
-            <button className='btn-operator' onClick={min}>-</button>
-            <button className='btn-operator' onClick={mult}>*</button>
-            <button className='btn-operator' onClick={divi}>/</button>
+            {/* In questo modo il codice è più facilmente mantenibile. */}
+            {['+', '-', '*', '/'].map(( operation, idx ) => (
+              <button
+                key={idx}
+                className='btn-operator'
+                onClick={() => computeResult( operation )}
+              >
+                {operation}
+              </button>
+            ))}
            </div>
             <input
             value={secondNum}
             type="number"
             id='num2'
-            onChange={( event ) => setSecondNum( +event.target.value ) }
+            onChange={( event ) => setSecondNum( Number( event.target.value ) ) }
             />
         </div>
         <div className='btn-div'>

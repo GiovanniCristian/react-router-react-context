@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./login.css";
 import {useNavigate} from "react-router-dom";
+import { UserContext } from "../contexts/user";
 
 
 function Login() {
+    let navigate = useNavigate();
+    const { toggleIsLoggedIn } = useContext( UserContext );
 
-    let navigate = useNavigate(); 
     const routeChange = () =>{ 
-    let path = `navbar`; 
-    navigate(path);
+        toggleIsLoggedIn();
+        navigate( '/' );
     }
 
 return (

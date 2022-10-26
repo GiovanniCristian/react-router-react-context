@@ -1,11 +1,12 @@
 import React from 'react';
 import './dashboard.css';
-import Navbar from './navbar';
+// import Navbar from './navbar';
 
 function Dashboard () {
 return(
 <>
-<Navbar />
+{/* // La Navbar ora è presente in tutte le pagine. Vedi Layout.js
+    <Navbar /> */}
 
   <div className='table-div'>
     <table>
@@ -16,7 +17,7 @@ return(
       </thead>
       <tbody>
         <tr>
-
+            
         </tr>
       </tbody>
     </table>
