@@ -1,8 +1,8 @@
-import React from 'react';
+import { createContext } from "react";
 
 const defaultContextValue = {
-    isLoggedIn: false,
-    toggleIsLoggedIn: () => null
-  };
-  
-  export const UserContext = React.createContext( defaultContextValue );
+  isLoggedIn: false,
+  toggleIsLoggedIn: () => null
+};
+
+export const UserContext = createContext( defaultContextValue );

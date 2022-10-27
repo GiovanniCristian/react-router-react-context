@@ -9,10 +9,11 @@ function Navbar() {
     <ul>
       <li>
           {/* <Link to="/dashboard" className='dash-link'>Dashboard</Link> */}
-          <Link to="/" className='dash-link'>Dashboard</Link>
+          
+          <Link to="/" className='calc-link'>Calculator</Link>
       </li>
       <li>
-          <Link to="/calculator" className='calc-link'>Calculator</Link>
+          <Link to="/dashboard" className='dash-link'>Dashboard</Link>
       </li>
     </ul>
   );

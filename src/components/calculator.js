@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import "./calculator.css";
-// import Navbar from './navbar';
 
 function Calculator() {
   const [ firstNum, setFirstNum ] = useState( 0 );
@@ -69,7 +68,9 @@ function Calculator() {
     }
 
     // Qui occorrerebbe aggiornare il Context dell'applicazione (vedi sopra).
+    
     setResult( newResult );
+    
   };
 
   return (
@@ -82,6 +83,9 @@ function Calculator() {
               value={firstNum}
               type="number"
               id='num1'
+              // Con la + intendi un type casting? Allora meglio esplicitarlo
+              // passando la variabile al metodo statico Number().
+              // onChange={( event ) => setFirstNum( +event.target.value ) }
               onChange={( event ) => setFirstNum( Number( event.target.value ) ) }
             />
            <div className='operators'>
@@ -100,6 +104,8 @@ function Calculator() {
             value={secondNum}
             type="number"
             id='num2'
+            // Come sopra.
+            // onChange={( event ) => setSecondNum( +event.target.value ) }
             onChange={( event ) => setSecondNum( Number( event.target.value ) ) }
             />
         </div>

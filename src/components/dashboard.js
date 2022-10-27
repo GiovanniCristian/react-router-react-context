@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './dashboard.css';
-// import Navbar from './navbar';
+import {ResultsContext} from '../contexts/results';
 
 function Dashboard () {
+  const resultsContext = useContext(ResultsContext);
 return(
 <>
-{/* // La Navbar ora è presente in tutte le pagine. Vedi Layout.js
-    <Navbar /> */}
 
   <div className='table-div'>
     <table>
@@ -17,7 +16,7 @@ return(
       </thead>
       <tbody>
         <tr>
-            
+          <td>{resultsContext}</td>
         </tr>
       </tbody>
     </table>

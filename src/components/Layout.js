@@ -1,11 +1,11 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
-import { UserContext } from '../contexts/user';
 import Navbar from "./navbar";
+import { UserContext } from '../contexts/user';
 
 const Layout = () => {
   const navigate   = useNavigate();
-  const isLoggedIn = useContext( UserContext );
+  const { isLoggedIn } = useContext( UserContext );
 
   // https://reactjs.org/docs/hooks-effect.html
   useEffect(() => {
@@ -26,6 +26,7 @@ const Layout = () => {
   return (
     <div>
         <Navbar />
+        { /* https://reactrouter.com/en/main/components/outlet */}
         <Outlet />
     </div>
   );
