@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import "./calculator.css";
+
+import { ResultsContext } from '../contexts/results';
 
 function Calculator() {
   const [ firstNum, setFirstNum ] = useState( 0 );
@@ -10,7 +12,9 @@ function Calculator() {
   // all'applicazione, non una variabile di stato locale al componente Calculator.
   // Quindi è necessario usare il concetto React di Context:
   // https://reactjs.org/docs/context.html
-  const [result, setResult ] = useState( 0 );
+  //const [result, setResult ] = useState( 0 );
+
+  const context = useContext( ResultsContext );
 
   // function add(){
   //   let operation = firstNum + secondNum;
@@ -68,9 +72,9 @@ function Calculator() {
     }
 
     // Qui occorrerebbe aggiornare il Context dell'applicazione (vedi sopra).
+    // setResult( newResult );
     
-    setResult( newResult );
-    
+    context.pushResult( newResult );
   };
 
   return (
@@ -110,7 +114,10 @@ function Calculator() {
             />
         </div>
         <div className='btn-div'>
-            <input type='text' id='result' value={result} readOnly/>
+            {/* <input type='text' id='result' value={results} readOnly/> */}
+            <div id='result'>
+              {context.getLatestResult()}
+            </div>
         </div>
     </>
   );

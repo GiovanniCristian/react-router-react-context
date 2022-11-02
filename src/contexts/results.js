@@ -1,3 +1,10 @@
 import { createContext } from "react";
 
-export const ResultsContext = createContext();
+const defaultContextValue = {
+    results: [],
+    pushResult: () => null
+  };
+
+export const ResultsContext = createContext(defaultContextValue);
+
+//// Ricorda sempre di dare un valore di default a createContext().////

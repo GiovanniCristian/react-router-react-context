@@ -4,8 +4,8 @@ import Navbar from "./navbar";
 import { UserContext } from '../contexts/user';
 
 const Layout = () => {
-  const navigate   = useNavigate();
-  const { isLoggedIn } = useContext( UserContext );
+  const navigate    = useNavigate();
+  const userContext = useContext( UserContext );
 
   // https://reactjs.org/docs/hooks-effect.html
   useEffect(() => {
@@ -18,10 +18,10 @@ const Layout = () => {
     // quando l'utente fa click sul pulsante di login, e successivamente 
     // leggere quella variabile in questo punto per controllare il ridirezionamento
     // della navigazione.
-    if ( !isLoggedIn ) {
+    if ( !userContext.isLoggedIn ) {
       navigate( '/login' );
     }
-  }, [ navigate, isLoggedIn ] );
+  }, [ navigate, userContext.isLoggedIn ] );
 
   return (
     <div>

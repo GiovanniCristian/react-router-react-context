@@ -4,13 +4,13 @@ import {useNavigate} from "react-router-dom";
 import { UserContext } from "../contexts/user";
 
 function Login() {
-    let navigate = useNavigate();
-    const { toggleIsLoggedIn } = useContext( UserContext );
+    let navigate      = useNavigate();
+    const userContext = useContext( UserContext );
 
     const routeChange = () =>{ 
         // let path = `navbar`; 
         
-        toggleIsLoggedIn();
+        userContext.toggleIsLoggedIn();
 
         // Navighiamo di default verso la home
         navigate( '/' );
